@@ -32,11 +32,20 @@ app.get('/', function(request,response){
 // set up a listener on port 3000
 app.listen(3000);
 ```
-Type `node <app name>` then check localhost:3000
+Type `node <app name>` to run the application then check localhost:3000
 
 
 
 ##### Advanced Debugging Strategies for Node Apps
+
+[Nodemon](https://github.com/remy/nodemon)
+[Node Inspector documentation](https://github.com/node-inspector/node-inspector)
+
+To install nodemon `npm install nodemon -g`
+
+To install node inspector `npm install node-inspector -g`
+
+
 
  
 
