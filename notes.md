@@ -48,7 +48,20 @@ To install node inspector `npm install node-inspector -g`, To run node-inspector
 To run both node inspector and nodemon:
 * Type `node-inspector`
 * In a separate tab, type `nodemon --debug <path to app>` This will listen to port 5858
-* You can either add break points manually through the node inspector or in the app. To add a break point in the app file, type `debugger;` and in your nodemon tab `nodemon  --debug-brk <path to app>` so it breaks on the first break point it encounters. 
+* You can either add break points manually through the node inspector or in the app. To add a break point in the app file, type `debugger;` and in your nodemon tab `nodemon  --debug-brk <path to app>` so it breaks on the first break point it encounters.
+
+
+##### Requests and the Request Object
+
+In node, we can add a parameter by adding `:<param>` like so:
+```
+app.get('/blog:title', function(req, res){ 
+	res.send(posts);
+});
+```
+
+* [The request object](http://expressjs.com/api.html#req)
+* [http request methods](http://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol#Request_methods)
  
 
 ##### Routing in Express
