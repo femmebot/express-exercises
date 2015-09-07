@@ -12,7 +12,7 @@ To create a new node project type `npm init`
 To install express.js, type `npm install express --save`. The `--save` flag
 ensures that it also includes express.js as a dependency in the package.json file.
 
-Create a simple express server applicaation:
+Create a simple express server application:
 ```
 'use strict';
 
@@ -41,12 +41,14 @@ Type `node <app name>` to run the application then check localhost:3000
 [Nodemon](https://github.com/remy/nodemon)
 [Node Inspector documentation](https://github.com/node-inspector/node-inspector)
 
-To install nodemon `npm install nodemon -g`
+To install nodemon `npm install nodemon -g`. To run nodemon, `nodemon <path to app>`.
 
-To install node inspector `npm install node-inspector -g`
+To install node inspector `npm install node-inspector -g`, To run node-inspector, `node-inspect <path to app>`. Press PLAY button on the inspector to continue. You can set break points directly in the inspector. You can also check Request and Response objects directly in the inspector's console.
 
-
-
+To run both node inspector and nodemon:
+* Type `node-inspector`
+* In a separate tab, type `nodemon --debug <path to app>` This will listen to port 5858
+* You can either add break points manually through the node inspector or in the app. To add a break point in the app file, type `debugger;` and in your nodemon tab `nodemon  --debug-brk <path to app>` so it breaks on the first break point it encounters. 
  
 
 ##### Routing in Express
