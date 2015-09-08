@@ -66,6 +66,7 @@ app.get('/blog:title', function(req, res){
 
 ##### Responses and the Response Object
 
+
 * [The response object](http://expressjs.com/api.html#res)
 * [http response methods](http://en.wikipedia.org/wiki/List_of_HTTP_status_codes)
 * [Detect device type or "bot through the request object"](http://en.wikipedia.org/wiki/List_of_HTTP_status_codes)
@@ -78,6 +79,15 @@ Core component of Express. From a user's perspective, a Route is the path the us
 
 ##### The Jade Template Engine
 
+Templates are often called 'Views,' acting as a skeleton where the server can inject information into variables before it is sent to the client. The process is known as Template Rendering.
+
+Popular templating languages for JavaScript include:
+* Handlebars
+* EJS (Embedded JavaScript)
+* JADE 
+
+A comparison of JavaScript template engines:
+[https://strongloop.com/strongblog/compare-javascript-templates-jade-mustache-dust/](https://strongloop.com/strongblog/compare-javascript-templates-jade-mustache-dust/)
  
 
 ##### The Express Static Server
