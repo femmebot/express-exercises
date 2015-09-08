@@ -43,7 +43,7 @@ Type `node <app name>` to run the application then check localhost:3000
 
 To install nodemon `npm install nodemon -g`. To run nodemon, `nodemon <path to app>`.
 
-To install node inspector `npm install node-inspector -g`, To run node-inspector, `node-inspect <path to app>`. Press PLAY button on the inspector to continue. You can set break points directly in the inspector. You can also check Request and Response objects directly in the inspector's console.
+To install node inspector `npm install node-inspector -g`, To run node-inspector, `node-inspector <path to app>`. Press PLAY button on the inspector to continue. You can set break points directly in the inspector. You can also check Request and Response objects directly in the inspector's console.
 
 To run both node inspector and nodemon:
 * Type `node-inspector`
@@ -55,7 +55,7 @@ To run both node inspector and nodemon:
 
 In node, we can add a parameter by adding `:<param>` like so:
 ```
-app.get('/blog:title', function(req, res){ 
+app.get('/blog:title', function(req, res){
 	res.send(posts);
 });
 ```
@@ -63,6 +63,12 @@ app.get('/blog:title', function(req, res){
 * [The request object](http://expressjs.com/api.html#req)
 * [http request methods](http://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol#Request_methods)
  
+
+##### Responses and the Response Object
+
+* [The response object](http://expressjs.com/api.html#res)
+* [http response methods](http://en.wikipedia.org/wiki/List_of_HTTP_status_codes)
+* [Detect device type or "bot through the request object"](http://en.wikipedia.org/wiki/List_of_HTTP_status_codes)
 
 ##### Routing in Express
 
