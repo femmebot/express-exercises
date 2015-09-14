@@ -84,20 +84,127 @@ Templates are often called 'Views,' acting as a skeleton where the server can in
 Popular templating languages for JavaScript include:
 * Handlebars
 * EJS (Embedded JavaScript)
-* JADE 
+* Jade http://jade-lang.com/
 
 A comparison of JavaScript template engines:
 [https://strongloop.com/strongblog/compare-javascript-templates-jade-mustache-dust/](https://strongloop.com/strongblog/compare-javascript-templates-jade-mustache-dust/)
+
+`npm install jade --save` to install Jade and also include it as a dependency in the package.json file
+
+Sample Jade template code:
+```
+doctype html
+html
+  head
+    title Express Basics
+  body
+    h1 This is an awesome html page generated with Jade
+    p.class1.class2.another-class(class="foobar") Some content
+```
  
 
 ##### The Express Static Server
 
-Loads styles, scripts, images and otehr static files to the browser
+Loads styles, scripts, images and other static files to the browser
 
- 
+Here's an example of a simple template
+```
+'use strict';
+
+var express = require('express'),
+	  posts = require('./mock/posts.json');
+
+var app = express();
+
+// define the templating engine
+app.set('view engine', 'jade');
+// define the path to the templates
+// use __dirname to indicate location relative to root
+app.set('views', __dirname + '/templates');
+
+app.get('/', function(req, res){
+  // since we already defined jade as the view engine, we don't need to add .jade
+	res.render('index');
+});
+
+app.get('/blog/:title?', function(req, res){
+	var title = req.params.title;
+	if (title === undefined) {
+		res.status(503);
+		res.send("This page is under construction!");
+	} else {
+		var post = posts[title];
+		res.send(post);
+	}
+});
+
+app.listen(3000, function() {
+	console.log("The frontend server is running on port 3000!");
+});
+```
+To test:
+* Make sure jade is installed and included as a package dependency `npm install jade -g --save`
+* Run `nodemon <path to app>`
+* In a separate tab run `node-inspector <path to app>` 
+
+##### Using variables
+
+Our sample app.js:
+```
+'use strict';
+
+var express = require('express'),
+	  posts = require('./mock/posts.json');
+
+var app = express();
+
+app.set('view engine', 'jade');
+app.set('views', __dirname + '/templates')
+
+app.get('/', function(req, res){
+	res.render('index')
+});
+
+app.get('/blog/:title?', function(req, res){
+	var title = req.params.title;
+	if (title === undefined) {
+		res.status(503);
+		res.send("This page is under construction!");
+	} else {
+		// quick fix if post does not exist is to create an empty variable
+		var post = posts[title] || {};
+		res.render('post', { post:post });  // second parameter is a variable looking for post object's post value
+	}
+});
+
+app.listen(3000, function() {
+	console.log("The frontend server is running on port 3000!");
+});
+```
+
+Our sample post.jade template with post.title and post.description variables: 
+```
+doctype html
+html(lang="en")
+  head
+    title #{post.title}
+  body
+    section.post
+      .container.text-right
+        a(href="").text-faded view all
+        .row
+          .col-lg-8.col-lg-offset-2.text-center
+            h2.section-heading #{post.title}
+
+            hr.light
+
+            p.text-faded
+              | #{post.description}
+            .article
+            | #{post.description}
+```
 
 ##### Reference:
 
--   [Express Website](<http://expressjs.com>)
-
--   [Express.js API Documentation](<http://expressjs.com/4x/api.html>)
+* [Express Website](<http://expressjs.com>)
+* [Express.js API Documentation](<http://expressjs.com/4x/api.html>)
