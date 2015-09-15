@@ -265,6 +265,17 @@ nav#mainNav.navbar.navbar-default.navbar-fixed-top
 								// /.container-fluid
 ```
 
+##### Serving Static Files
+
+Use `app.use` to define middleware. 
+```
+// defines middleware for app--the logic that tells express
+// between the time a request is made by client but before it arrives at a route
+
+app.use('/static', express.static(__dirname + '/public'));
+
+```
+
 ##### Reference:
 
 * [Express Website](<http://expressjs.com>)
