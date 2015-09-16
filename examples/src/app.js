@@ -3,12 +3,15 @@
 var express = require('express'),
 	  posts = require('./mock/posts.json');
 
+// Object.keys is a method that generates an array of keys from an object
+// Arrays have a map method that can iterate through an array and create a new array
+// Here we use a callback function that simply returns the value of each post object
+var postsLists = Object.keys(posts).map(function(value) {
+							         return posts[value]})
+
 var app = express();
 
-// defines middleware for app—the logic that tells express
-// between the time a request is made by client but before it arrives at a route
-app.use('/static', express.static(__dirname + '/public'));  
-
+app.use('/static', express.static(__dirname + '/public'))
 
 app.set('view engine', 'jade');
 app.set('views', __dirname + '/templates');
@@ -21,7 +24,7 @@ app.get('/blog/:title?', function(req, res){
 	var title = req.params.title;
 	if (title === undefined) {
 		res.status(503);
-		res.send("This page is under construction!");
+		res.render('blog', {posts: postsLists})
 	} else {
 		var post = posts[title] || {};
 		res.render('post', { post: post});

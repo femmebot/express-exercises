@@ -267,7 +267,7 @@ nav#mainNav.navbar.navbar-default.navbar-fixed-top
 
 ##### Serving Static Files
 
-Use `app.use` to define middleware. 
+Use `app.use` to define middleware.
 ```
 // defines middleware for app--the logic that tells express
 // between the time a request is made by client but before it arrives at a route
@@ -275,6 +275,11 @@ Use `app.use` to define middleware.
 app.use('/static', express.static(__dirname + '/public'));
 
 ```
+
+##### Iteration in Jade
+
+[Iteration](http://jade-lang.com/reference/iteration/)
+
 
 ##### Reference:
 
