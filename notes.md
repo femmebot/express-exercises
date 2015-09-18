@@ -281,6 +281,12 @@ app.use('/static', express.static(__dirname + '/public'));
 [Iteration](http://jade-lang.com/reference/iteration/)
 
 
+#### Using Logic in Jade
+
+[express res.locals object](http://expressjs.com/4x/api.html#res.locals)
+[Jade's boolean/conditional syntax](http://jade-lang.com/reference/conditionals/)
+
+
 ##### Reference:
 
 * [Express Website](<http://expressjs.com>)

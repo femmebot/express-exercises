@@ -17,6 +17,11 @@ app.set('view engine', 'jade');
 app.set('views', __dirname + '/templates');
 
 app.get('/', function(req, res){
+	var path = req.path;
+
+	// this is the same as
+	// res.render('index', {path: path});
+	res.locals.path = path;
 	res.render('index');
 });
 
