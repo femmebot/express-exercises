@@ -287,6 +287,11 @@ app.use('/static', express.static(__dirname + '/public'));
 [Jade's boolean/conditional syntax](http://jade-lang.com/reference/conditionals/)
 
 
+##### Using Express-Generator
+
+[express-generator documentation](http://expressjs.com/starter/generator.html)
+
+
 ##### Reference:
 
 * [Express Website](<http://expressjs.com>)
