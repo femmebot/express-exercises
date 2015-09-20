@@ -292,6 +292,14 @@ app.use('/static', express.static(__dirname + '/public'));
 [express-generator documentation](http://expressjs.com/starter/generator.html)
 
 
+
+##### Advanced Topics
+
+* [Documentation on res.json method](http://expressjs.com/4x/api.html#res.json)
+* Add `?raw=true`to endpoint [How to turn URLs into "GET" queries](https://teamtreehouse.com/library/ajax-basics/ajax-concepts/get-and-post)
+
+
+
 ##### Reference:
 
 * [Express Website](<http://expressjs.com>)
